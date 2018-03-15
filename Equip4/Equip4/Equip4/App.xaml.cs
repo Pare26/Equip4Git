@@ -9,14 +9,17 @@ namespace Equip4
 {
 	public partial class App : Application
 	{
-		public App ()
+        #region Constructors
+        public App ()
 		{
 			InitializeComponent();
 
-			MainPage = new Equip4.MainPage();
+			this.MainPage = new NavigationPage( new LoginPage());
 		}
+        #endregion
 
-		protected override void OnStart ()
+        #region Methods
+        protected override void OnStart ()
 		{
 			// Handle when your app starts
 		}
@@ -30,5 +33,6 @@ namespace Equip4
 		{
 			// Handle when your app resumes
 		}
-	}
+        #endregion
+    }
 }

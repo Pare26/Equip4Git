@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Equip4.LoginPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Login">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10,20,10,5">
+                <Label
+                FontAttributes="Bold"
+                FontSize="Large"
+                HorizontalOptions="Center"
+                Text="Equip4"/>
+                <Image 
+                Source="LogoTransaprent">
+                </Image>
+                <Label
+                Text="E-Mail">
+                </Label>
+                <Grid>
+                    Margin="0,20"
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*0"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Entry
+                    Keyboard="Email"
+                    Placeholder="Enter your email...">
+                    </Entry>
+                    <Label
+                    Text="Password">
+                    </Label>
+                    <Entry
+                    IsPassword="True"
+                    Placeholder="Enter your password...">
+                    </Entry>
+                </Grid>
+                <StackLayout
+                Orientation="Horizontal">
+                    <Label
+                Text="Remember me on this device"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                    </Label>
+                    <Switch
+                    HorizontalOptions="End"></Switch>
+                </StackLayout>
+                <ActivityIndicator>
+                </ActivityIndicator>
+                <StackLayout
+                Margin="30,0">
+                    <Button
+                BackgroundColor="LawnGreen"
+                BorderRadius="23"
+                    HeightRequest="46"
+                Text="Login"
+                TextColor="Black">
+                    </Button>
+                    <Button
+                BackgroundColor="LawnGreen"
+                BorderRadius="23"
+                HeightRequest="46"
+                Text="Register"
+                TextColor="Black">
+                    </Button>
+                </StackLayout>
+                <StackLayout
+                Orientation="Horizontal">
+                    <Image
+                    Source="gmail"
+                    WidthRequest="100">
+                    </Image>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
