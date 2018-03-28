@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LogIn.paginas.Page1">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--<Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />-->
+            <Label x:Name="LabelProva"  Text="Usuario" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Label Text="{Binding nombre}" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Entry  x:Name="txtUsuari" Placeholder="Usuario"></Entry>
+            <Label Text="Password" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" />
+            <Label Text="{Binding passwd}" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Entry  x:Name="txtPasswd" Placeholder="Password"></Entry>
+            <Button x:Name="btnBuscar" Text="Buscar" WidthRequest="185" BorderWidth="1"
+                    Clicked="btnBuscar_Clicked" HorizontalOptions="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
