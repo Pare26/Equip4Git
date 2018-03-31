@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
-using System.Windows.Input;
-using GalaSoft.MvvmLight.Command;
+﻿using GalaSoft.MvvmLight.Command;
 using LogIn.Models;
 using LogIn.Services;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace LogIn.ViewModels
@@ -19,6 +18,8 @@ namespace LogIn.ViewModels
         #region Attributes
         private ObservableCollection<Usuario> usuarios;
         private bool isRefreshing;
+        private string filter;
+        private List<Usuario> usuarioList;
         #endregion
 
         #region Properties
@@ -32,6 +33,16 @@ namespace LogIn.ViewModels
         {
             get { return this.isRefreshing; }
             set { SetValue(ref this.isRefreshing, value); }
+        }
+
+        public string Filter
+        {
+            get { return this.filter; }
+            set
+            {
+                SetValue(ref this.filter, value);
+                this.Search();
+            }
         }
         #endregion
 
@@ -76,8 +87,9 @@ namespace LogIn.ViewModels
                 return;
             }
 
-            var list = (List<Usuario>)response.Result;
-            this.Usuarios = new ObservableCollection<Usuario>(list);
+            this.usuarioList = (List<Usuario>)response.Result;
+            this.Usuarios = new ObservableCollection<Usuario>(this.usuarioList);
+            this.IsRefreshing = false;
         }
         #endregion
 
@@ -87,6 +99,28 @@ namespace LogIn.ViewModels
             get
             {
                 return new RelayCommand(LoadUsuarios);
+            }
+        }
+        public ICommand SearchCommand
+        {
+            get
+            {
+                return new RelayCommand(Search);
+            }
+        }
+
+        private void Search()
+        {
+            if (string.IsNullOrEmpty(this.Filter))
+            {
+                this.Usuarios = new ObservableCollection<Usuario>(
+                    this.usuarioList);
+            }
+            else
+            {
+                this.Usuarios = new ObservableCollection<Usuario>(
+                    this.usuarioList.Where(
+                        l => l.Email.ToLower().Contains(this.Filter.ToLower())));
             }
         }
         #endregion

@@ -98,9 +98,9 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LogIn\LogIn.csproj">
-      <Project>{75D2CE08-D602-42C4-9899-98807C93EDB6}</Project>
-      <Name>LogIn</Name>
+    <ProjectReference Include="..\LogIn\Equip4.csproj">
+      <Project>{80DD1D24-1FE0-46D7-94D6-AFE5AA405269}</Project>
+      <Name>Equip4</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

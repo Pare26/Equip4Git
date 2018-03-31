@@ -8,6 +8,13 @@
         <StackLayout 
             BindingContext="{Binding PassarLlista}"
             Padding="5">
+            <SearchBar
+                BackgroundColor="Silver"
+                HeightRequest="46"
+                Text="{Binding Filter, Mode=TwoWay}"
+                Placeholder="Buscar..."
+                SearchCommand="{Binding SearchCommand}">
+            </SearchBar>
             <ListView 
                 BackgroundColor="Silver"
                 HasUnevenRows="true" 
