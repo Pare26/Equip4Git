@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using LogIn.Models;
 using LogIn.Services;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -16,14 +17,15 @@ namespace LogIn.ViewModels
         #endregion
 
         #region Attributes
-        private ObservableCollection<Usuario> usuarios;
+        private ObservableCollection<UsuarioItemViewModel> usuarios;
         private bool isRefreshing;
         private string filter;
+        private string today = DateTime.Now.ToShortDateString();
         private List<Usuario> usuarioList;
         #endregion
 
         #region Properties
-        public ObservableCollection<Usuario> Usuarios
+        public ObservableCollection<UsuarioItemViewModel> Usuarios
         {
             get { return this.usuarios; }
             set { SetValue(ref this.usuarios, value); }
@@ -43,6 +45,11 @@ namespace LogIn.ViewModels
                 SetValue(ref this.filter, value);
                 this.Search();
             }
+        }
+
+        public string Today
+        {
+            get { return this.today; }
         }
         #endregion
 
@@ -88,8 +95,20 @@ namespace LogIn.ViewModels
             }
 
             this.usuarioList = (List<Usuario>)response.Result;
-            this.Usuarios = new ObservableCollection<Usuario>(this.usuarioList);
+            this.Usuarios = new ObservableCollection<UsuarioItemViewModel>(
+                this.ToUsuarioItemViewModel());
             this.IsRefreshing = false;
+        }
+        #endregion
+
+        #region Methods
+        private IEnumerable<UsuarioItemViewModel> ToUsuarioItemViewModel()
+        {
+            return this.usuarioList.Select(l => new UsuarioItemViewModel
+            {
+                Email = l.Email,
+                Password = l.Password,
+            });
         }
         #endregion
 
@@ -113,13 +132,13 @@ namespace LogIn.ViewModels
         {
             if (string.IsNullOrEmpty(this.Filter))
             {
-                this.Usuarios = new ObservableCollection<Usuario>(
-                    this.usuarioList);
+                this.Usuarios = new ObservableCollection<UsuarioItemViewModel>(
+                    this.ToUsuarioItemViewModel());
             }
             else
             {
-                this.Usuarios = new ObservableCollection<Usuario>(
-                    this.usuarioList.Where(
+                this.Usuarios = new ObservableCollection<UsuarioItemViewModel>(
+                  this.ToUsuarioItemViewModel().Where(
                         l => l.Email.ToLower().Contains(this.Filter.ToLower())));
             }
         }

@@ -18,6 +18,12 @@ namespace LogIn.ViewModels
             get;
             set;
         }
+
+        public UsuarioViewModel Usuario
+        {
+            get;
+            set;
+        }
         #endregion
 
         #region Constructors

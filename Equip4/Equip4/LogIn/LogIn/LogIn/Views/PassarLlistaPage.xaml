@@ -15,6 +15,13 @@
                 Placeholder="Buscar..."
                 SearchCommand="{Binding SearchCommand}">
             </SearchBar>
+            <Label
+                FontAttributes="Bold"
+                FontSize="Medium" 
+                Text="{Binding Today}"
+                TextColor="Black"
+                HorizontalOptions="Center">
+            </Label>
             <ListView 
                 BackgroundColor="Silver"
                 HasUnevenRows="true" 
@@ -31,7 +38,7 @@
                                 HasShadow="true"
                                 Margin="5">
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding SelectLandCommand}"/>
+                                    <TapGestureRecognizer Command="{Binding SelectUsuarioCommand}"/>
                                 </Frame.GestureRecognizers>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -54,15 +61,18 @@
                                             Text="{Binding Email}"
                                             TextColor="Black">
                                         </Label>
-                                        <!--<Label 
-                                            Text="{Binding Capital}"
+                                        <Label 
+                                            Text="{Binding Password}"
                                             TextColor="Black">
-                                        </Label>-->
+                                        </Label>
                                     </StackLayout>
                                     <Image 
                                         Grid.Column="2"
                                         HorizontalOptions="End" 
                                         Source="ic_chevron_right">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding LoginGmailCommand}"/>
+                                        </Image.GestureRecognizers>
                                     </Image>
                                 </Grid>
                             </Frame>

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogIn.iOS", "LogIn\LogIn.iO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogIn.UWP", "LogIn\LogIn.UWP\LogIn.UWP.csproj", "{BD90BB2D-220B-43E5-ACC9-7DADDD86CBF8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Equip4", "LogIn\LogIn\Equip4.csproj", "{80DD1D24-1FE0-46D7-94D6-AFE5AA405269}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogIn", "LogIn\LogIn\LogIn.csproj", "{80DD1D24-1FE0-46D7-94D6-AFE5AA405269}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

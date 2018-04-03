@@ -53,6 +53,9 @@
         {
             this.IsRemembered = true;
             this.IsEnabled = true;
+
+            this.Email = "a";
+            this.Password = "a";
         }
         #endregion
 
@@ -64,6 +67,7 @@
 
         private async void Login()
         {
+            
             if (String.IsNullOrEmpty(this.Email))
             {
                 await Application.Current.MainPage.DisplayAlert(
@@ -84,7 +88,7 @@
             this.IsRunning = true;
             this.IsEnabled = false;
 
-            if (this.Email != "hola" || this.Password != "123")
+            if (this.Email != "a" || this.Password != "a")
             {
                 this.IsRunning = false;
                 this.IsEnabled = true;
@@ -104,7 +108,7 @@
 
             //cambiar pagina
             MainViewModel.GetInstance().PassarLlista = new PassarLlistaViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new PassarLlistaPage());
+            await Application.Current.MainPage.Navigation.PushAsync(new GeneralTabbedPage());
         }
         #endregion
 

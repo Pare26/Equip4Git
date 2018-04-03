@@ -11,18 +11,18 @@ namespace LogIn.Models
         //un alies per entendre millor
         [JsonProperty(PropertyName = "email")]
         public string Email { get; set; }
-        [JsonProperty(PropertyName = "passwd")]
-        public string Passwd { get; set; }
+        [JsonProperty(PropertyName = "password")]
+        public string Password { get; set; }
 
         public Usuario()
         {
             this.Email = string.Empty;
-            this.Passwd = string.Empty;
+            this.Password = string.Empty;
         }
         public Usuario(string nombre, string passwd)
         {
             this.Email = nombre;
-            this.Passwd = passwd;
+            this.Password = passwd;
         }
     }
 }

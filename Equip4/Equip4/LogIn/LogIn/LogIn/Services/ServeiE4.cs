@@ -29,7 +29,7 @@ namespace LogIn.Serveis
                         var usuario = new Usuario();
 
                         usuario.Email = (string)datos["account"]["email"];
-                        usuario.Passwd = (string)datos["account"]["password"];
+                        usuario.Password = (string)datos["account"]["password"];
 
                         return usuario;
                     }
