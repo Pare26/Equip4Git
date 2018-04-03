@@ -1,13 +1,21 @@
 ﻿namespace LogIn.ViewModels
 {
     using GalaSoft.MvvmLight.Command;
+    using LogIn.Models;
+    using LogIn.Services;
     using LogIn.Views;
     using System;
     using System.Windows.Input;
     using Xamarin.Forms;
+    using Helpers;
     class LoginViewModel : BaseViewModel
     {
+        #region Services
+        private ApiService apiService;
+        #endregion
+
         #region Attributes
+        Usuario usuario = new Usuario(); 
         private string email;
         private string password;
         private bool isRunning;
@@ -51,11 +59,13 @@
         #region Constructors
         public LoginViewModel()
         {
+            this.apiService = new ApiService();
+
             this.IsRemembered = true;
             this.IsEnabled = true;
 
-            this.Email = "a";
-            this.Password = "a";
+            this.Email = "admin";
+            this.Password = "admin";
         }
         #endregion
 
@@ -71,16 +81,16 @@
             if (String.IsNullOrEmpty(this.Email))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "Tens que posar un email.",
-                    "Accept");
+                    Languages.Error,
+                    Languages.EmailValidation,
+                    Languages.Accept);
                 return;
             }
             if (String.IsNullOrEmpty(this.Password))
             {
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Tens que posar un password.",
+                    "You must enter a password.",
                     "Accept");
                 return;
             }
@@ -88,7 +98,9 @@
             this.IsRunning = true;
             this.IsEnabled = false;
 
-            if (this.Email != "a" || this.Password != "a")
+            usuario = await apiService.ConsultarUsuario(Email, Password);
+
+            if (!this.Email.Equals(usuario.Email) || !this.Password.Equals(usuario.Password))
             {
                 this.IsRunning = false;
                 this.IsEnabled = true;

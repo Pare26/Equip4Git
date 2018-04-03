@@ -8,6 +8,7 @@
     using System.Threading.Tasks;
     using Models;
     using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
     using Plugin.Connectivity;
 
     public class ApiService
@@ -42,78 +43,32 @@
             };
         }
 
-        public async Task<TokenResponse> GetToken(
-            string urlBase,
-            string username,
-            string password)
+        public async Task<Usuario> ConsultarUsuario(string email, string password)
         {
-            try
-            {
-                var client = new HttpClient();
-                client.BaseAddress = new Uri(urlBase);
-                var response = await client.PostAsync("Token",
-                    new StringContent(string.Format(
-                    "grant_type=password&username={0}&password={1}",
-                    username, password),
-                    Encoding.UTF8, "application/x-www-form-urlencoded"));
-                var resultJSON = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<TokenResponse>(
-                    resultJSON);
-                return result;
-            }
-            catch
-            {
-                return null;
-            }
-        }
+            var conexion = $"http://192.168.0.10/WebService/GetUsuario.php?email=" + email + "&password=" + password;
 
-        public async Task<Response> Get<T>(
-            string urlBase,
-            string servicePrefix,
-            string controller,
-            string tokenType,
-            string accessToken,
-            int id)
-        {
-            try
+            using (var cliente = new HttpClient())
             {
-                var client = new HttpClient();
-                client.DefaultRequestHeaders.Authorization =
-                    new AuthenticationHeaderValue(tokenType, accessToken);
-                client.BaseAddress = new Uri(urlBase);
-                var url = string.Format(
-                    "{0}{1}/{2}",
-                    servicePrefix,
-                    controller,
-                    id);
-                var response = await client.GetAsync(url);
+                var peticion = await cliente.GetAsync(conexion);
 
-                if (!response.IsSuccessStatusCode)
+                if (peticion != null)
                 {
-                    return new Response
+                    var json = await peticion.Content.ReadAsStringAsync();
+
+                    var datos = (JContainer)JsonConvert.DeserializeObject(json);
+
+                    if (datos["account"] != null)
                     {
-                        IsSuccess = false,
-                        Message = response.StatusCode.ToString(),
-                    };
-                }
+                        var usuario = new Usuario();
 
-                var result = await response.Content.ReadAsStringAsync();
-                var model = JsonConvert.DeserializeObject<T>(result);
-                return new Response
-                {
-                    IsSuccess = true,
-                    Message = "Ok",
-                    Result = model,
-                };
+                        usuario.Email = (string)datos["account"]["email"];
+                        usuario.Password = (string)datos["account"]["password"];
+
+                        return usuario;
+                    }
+                }
             }
-            catch (Exception ex)
-            {
-                return new Response
-                {
-                    IsSuccess = false,
-                    Message = ex.Message,
-                };
-            }
+            return default(Usuario);
         }
 
         public async Task<Response> GetList<T>(
@@ -155,100 +110,6 @@
                 };
             }
         }
-
-        public async Task<Response> GetList<T>(
-            string urlBase,
-            string servicePrefix,
-            string controller,
-            string tokenType,
-            string accessToken)
-        {
-            try
-            {
-                var client = new HttpClient();
-                client.DefaultRequestHeaders.Authorization =
-                    new AuthenticationHeaderValue(tokenType, accessToken);
-                client.BaseAddress = new Uri(urlBase);
-                var url = string.Format("{0}{1}", servicePrefix, controller);
-                var response = await client.GetAsync(url);
-                var result = await response.Content.ReadAsStringAsync();
-
-                if (!response.IsSuccessStatusCode)
-                {
-                    return new Response
-                    {
-                        IsSuccess = false,
-                        Message = result,
-                    };
-                }
-
-                var list = JsonConvert.DeserializeObject<List<T>>(result);
-                return new Response
-                {
-                    IsSuccess = true,
-                    Message = "Ok",
-                    Result = list,
-                };
-            }
-            catch (Exception ex)
-            {
-                return new Response
-                {
-                    IsSuccess = false,
-                    Message = ex.Message,
-                };
-            }
-        }
-
-        public async Task<Response> GetList<T>(
-            string urlBase,
-            string servicePrefix,
-            string controller,
-            string tokenType,
-            string accessToken,
-            int id)
-        {
-            try
-            {
-                var client = new HttpClient();
-                client.DefaultRequestHeaders.Authorization =
-                    new AuthenticationHeaderValue(tokenType, accessToken);
-                client.BaseAddress = new Uri(urlBase);
-                var url = string.Format(
-                    "{0}{1}/{2}",
-                    servicePrefix,
-                    controller,
-                    id);
-                var response = await client.GetAsync(url);
-
-                if (!response.IsSuccessStatusCode)
-                {
-                    return new Response
-                    {
-                        IsSuccess = false,
-                        Message = response.StatusCode.ToString(),
-                    };
-                }
-
-                var result = await response.Content.ReadAsStringAsync();
-                var list = JsonConvert.DeserializeObject<List<T>>(result);
-                return new Response
-                {
-                    IsSuccess = true,
-                    Message = "Ok",
-                    Result = list,
-                };
-            }
-            catch (Exception ex)
-            {
-                return new Response
-                {
-                    IsSuccess = false,
-                    Message = ex.Message,
-                };
-            }
-        }
-
         public async Task<Response> Post<T>(
             string urlBase,
             string servicePrefix,
