@@ -120,10 +120,49 @@
   <data name="Accept" xml:space="preserve">
     <value>Aceptar</value>
   </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailOrPasswordIncorrect" xml:space="preserve">
+    <value>El email o la contrasenya son incorrectos</value>
+  </data>
+  <data name="EmailPlaceHolder" xml:space="preserve">
+    <value>Pon tu email...</value>
+  </data>
   <data name="EmailValidation" xml:space="preserve">
     <value>Tienes que poner un email.</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Iniciar sesion</value>
+  </data>
+  <data name="Noconnexion" xml:space="preserve">
+    <value>No hay connexion</value>
+  </data>
+  <data name="PassList" xml:space="preserve">
+    <value>Pasar lista</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="PasswordForgot" xml:space="preserve">
+    <value>Has olvidado tu contraseña?</value>
+  </data>
+  <data name="PasswordPlaceHolder" xml:space="preserve">
+    <value>Pon tu contraseña...</value>
+  </data>
+  <data name="PasswordValidation" xml:space="preserve">
+    <value>Tienes que poner una contraseña.</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registrar</value>
+  </data>
+  <data name="Rememberme" xml:space="preserve">
+    <value>Recordarme en enste dispositivo</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Buscar...</value>
   </data>
 </root>

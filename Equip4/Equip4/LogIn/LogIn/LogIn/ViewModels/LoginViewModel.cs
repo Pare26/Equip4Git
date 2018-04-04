@@ -89,14 +89,27 @@
             if (String.IsNullOrEmpty(this.Password))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must enter a password.",
-                    "Accept");
+                    Languages.Error,
+                    Languages.PasswordValidation,
+                    Languages.Accept);
                 return;
             }
 
             this.IsRunning = true;
             this.IsEnabled = false;
+
+            var connexion = await this.apiService.CheckConnection();
+
+            if (!connexion.IsSuccess)
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
+                await Application.Current.MainPage.DisplayAlert(
+                   Languages.Error,
+                   connexion.Message,
+                   Languages.Accept);
+                return;
+            }
 
             usuario = await apiService.ConsultarUsuario(Email, Password);
 
@@ -105,9 +118,9 @@
                 this.IsRunning = false;
                 this.IsEnabled = true;
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "Email or password incorrect",
-                    "Accept");
+                    Languages.Error,
+                    Languages.EmailOrPasswordIncorrect,
+                    Languages.Accept);
                 this.Password = string.Empty;
                 return;
             }
