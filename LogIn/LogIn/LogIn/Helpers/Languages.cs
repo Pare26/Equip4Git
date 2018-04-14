@@ -91,10 +91,23 @@ namespace LogIn.Helpers
             get { return Resource.Noconnexion; }
         }
 
-        //public static string Information
-        //{
-        //    get { return Resource.Information; }
-        //}
+        public static string MyProfile
+        {
+            get { return Resource.MyProfile; }
+        }
+
+        public static string LogOut
+        {
+            get { return Resource.LogOut; }
+        }
+        public static string VirtualMarker
+        {
+            get { return Resource.VirtualMarker; }
+        }
+        public static string Menu
+        {
+            get { return Resource.Menu; }
+        }
 
 
     }

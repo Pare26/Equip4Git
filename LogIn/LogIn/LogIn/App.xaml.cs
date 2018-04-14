@@ -18,13 +18,14 @@ namespace LogIn
             internal set;
         }
         #endregion
+
         #region Constructor
         public App()
         {
             InitializeComponent();
 
-           // MainPage = new MasterPage();
-           MainPage = new NavigationPage(new LoginPage());
+            MainPage = new MasterPage();
+           //MainPage = new NavigationPage(new LoginPage());
         }
         #endregion
 

@@ -115,6 +115,24 @@ namespace LogIn.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a First name.
+        /// </summary>
+        public static string FirstName {
+            get {
+                return ResourceManager.GetString("FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a First name....
+        /// </summary>
+        public static string FirstNamePlaceHolder {
+            get {
+                return ResourceManager.GetString("FirstNamePlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Forgot your password?.
         /// </summary>
         public static string ForgotPassword {
@@ -129,6 +147,33 @@ namespace LogIn.Resources {
         public static string Login {
             get {
                 return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Log Out.
+        /// </summary>
+        public static string LogOut {
+            get {
+                return ResourceManager.GetString("LogOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Menu.
+        /// </summary>
+        public static string Menu {
+            get {
+                return ResourceManager.GetString("Menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a My Profile.
+        /// </summary>
+        public static string MyProfile {
+            get {
+                return ResourceManager.GetString("MyProfile", resourceCulture);
             }
         }
         
@@ -178,6 +223,15 @@ namespace LogIn.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Regist.
+        /// </summary>
+        public static string Regist {
+            get {
+                return ResourceManager.GetString("Regist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Register.
         /// </summary>
         public static string Register {
@@ -201,6 +255,33 @@ namespace LogIn.Resources {
         public static string Search {
             get {
                 return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Second name.
+        /// </summary>
+        public static string SecondName {
+            get {
+                return ResourceManager.GetString("SecondName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Second name....
+        /// </summary>
+        public static string SecondNamePlaceHolder {
+            get {
+                return ResourceManager.GetString("SecondNamePlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Virtual marker.
+        /// </summary>
+        public static string VirtualMarker {
+            get {
+                return ResourceManager.GetString("VirtualMarker", resourceCulture);
             }
         }
     }

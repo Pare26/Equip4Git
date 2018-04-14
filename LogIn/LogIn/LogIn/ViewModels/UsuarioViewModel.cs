@@ -2,7 +2,7 @@
 
 namespace LogIn.ViewModels
 {
-    class UsuarioViewModel
+    public class UsuarioViewModel
     {
         #region Properties
         public Usuario Usuario

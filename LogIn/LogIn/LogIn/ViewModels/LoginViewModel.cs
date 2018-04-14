@@ -8,7 +8,7 @@
     using System.Windows.Input;
     using Xamarin.Forms;
     using Helpers;
-    class LoginViewModel : BaseViewModel
+    public class LoginViewModel : BaseViewModel
     {
         #region Services
         private ApiService apiService;

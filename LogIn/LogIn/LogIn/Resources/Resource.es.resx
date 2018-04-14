@@ -138,6 +138,9 @@
   <data name="Login" xml:space="preserve">
     <value>Iniciar sesion</value>
   </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menú</value>
+  </data>
   <data name="Noconnexion" xml:space="preserve">
     <value>No hay connexion</value>
   </data>
