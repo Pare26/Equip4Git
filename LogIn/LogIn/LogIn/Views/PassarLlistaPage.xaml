@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:LogIn.Helpers"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             x:Class="LogIn.Views.PassarLlistaPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Passar Llista">
+    <ContentPage.Content>
+        <StackLayout 
+            BindingContext="{Binding PassarLlista}"
+            Padding="5">
+            <SearchBar
+                BackgroundColor="Silver"
+                HeightRequest="46"
+                Text="{Binding Filter, Mode=TwoWay}"
+                Placeholder="{i18n:Translate Search}"
+                SearchCommand="{Binding SearchCommand}">
+            </SearchBar>
+            <Label
+                FontAttributes="Bold"
+                FontSize="Medium" 
+                Text="{Binding Countdown}"
+                TextColor="Black"
+                HorizontalOptions="Center">
+            </Label>
+            <ListView 
+                BackgroundColor="Silver"
+                HasUnevenRows="true" 
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                ItemsSource="{Binding Usuarios}"
+                SeparatorVisibility="None"
+                RefreshCommand="{Binding RefreshCommand}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
+                                CornerRadius="20"
+                                HasShadow="true"
+                                Margin="5">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectUsuarioCommand}"/>
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <!--<ColumnDefinition Width="Auto"/> -->
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <!--<ffimageloading:CachedImage 
+                                        Grid.Column="0"
+                                        HeightRequest="30"
+                                        Source="{Binding Flag, Converter={StaticResource SvgImageSourceConverter}}"
+                                        WidthRequest="60">
+                                    </ffimageloading:CachedImage>-->
+                                    <StackLayout 
+                                        Grid.Column="1"
+                                        VerticalOptions="Center">
+                                        <Label 
+                                            FontAttributes="Bold"
+                                            FontSize="Medium" 
+                                            Text="{Binding Nom}"
+                                            TextColor="Black">
+                                        </Label>
+                                        <Label 
+                                            Text="{Binding Cognom}"
+                                            TextColor="Black">
+                                        </Label>
+                                    </StackLayout>
+                                    <controls:CheckBox
+                                        x:Name="checkBoxPresent"
+                                        Grid.Column="2">
+                                    </controls:CheckBox>
+                                    <Image 
+                                        Grid.Column="2"
+                                        HorizontalOptions="End" 
+                                        Source="ic_chevron_right">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding LoginGmailCommand}"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
