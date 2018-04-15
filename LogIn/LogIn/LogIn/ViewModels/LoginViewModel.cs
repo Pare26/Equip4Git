@@ -133,7 +133,8 @@
 
             //cambiar pagina
             MainViewModel.GetInstance().PassarLlista = new PassarLlistaViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new GeneralTabbedPage());
+
+            Application.Current.MainPage = new MasterPage();
         }
         #endregion
 

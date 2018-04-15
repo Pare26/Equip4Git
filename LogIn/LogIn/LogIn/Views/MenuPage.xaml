@@ -3,12 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LogIn.Views.MenuPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundColor="Green"
              Title="Menu">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout
+            Padding="5,20,5,5">
+            <Image
+                Source="e4"
+                WidthRequest="100">
+            </Image>
             <ListView 
+                BackgroundColor="Green"
                     ItemsSource="{Binding Menus}"
-                    HasUnevenRows="True">
+                    HasUnevenRows="True"
+                SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -25,7 +33,7 @@
                                 <Label 
                                      Grid.Column="1"
                                      VerticalOptions="Center"
-                                     TextColor="Black"
+                                     TextColor="GreenYellow"
                                      Text="{Binding Title}">
                                 </Label>
                             </Grid>
