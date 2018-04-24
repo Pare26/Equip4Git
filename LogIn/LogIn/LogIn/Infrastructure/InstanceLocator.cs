@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LogIn.Infrastructure
 { 
-    class InstanceLocator
+    public class InstanceLocator
     {
         #region Propierties
         public MainViewModel Main

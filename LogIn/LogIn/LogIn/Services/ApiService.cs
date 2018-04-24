@@ -10,6 +10,7 @@
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
     using Plugin.Connectivity;
+    using Xamarin.Forms;
 
     public class ApiService
     {
@@ -45,6 +46,9 @@
 
         public async Task<Usuario> ConsultarUsuario(string email, string password)
         {
+            //url de el app.xaml
+            var apiE4 = Application.Current.Resources["APIe4"].ToString();
+
             var conexion = $"http://192.168.0.10/WebService/GetUsuario.php?email=" + email + "&password=" + password;
 
             using (var cliente = new HttpClient())
@@ -113,54 +117,7 @@
                 };
             }
         }
-        public async Task<Response> Post<T>(
-            string urlBase,
-            string servicePrefix,
-            string controller,
-            string tokenType,
-            string accessToken,
-            T model)
-        {
-            try
-            {
-                var request = JsonConvert.SerializeObject(model);
-                var content = new StringContent(
-                    request, Encoding.UTF8,
-                    "application/json");
-                var client = new HttpClient();
-                client.DefaultRequestHeaders.Authorization =
-                    new AuthenticationHeaderValue(tokenType, accessToken);
-                client.BaseAddress = new Uri(urlBase);
-                var url = string.Format("{0}{1}", servicePrefix, controller);
-                var response = await client.PostAsync(url, content);
-                var result = await response.Content.ReadAsStringAsync();
-
-                if (!response.IsSuccessStatusCode)
-                {
-                    var error = JsonConvert.DeserializeObject<Response>(result);
-                    error.IsSuccess = false;
-                    return error;
-                }
-
-                var newRecord = JsonConvert.DeserializeObject<T>(result);
-
-                return new Response
-                {
-                    IsSuccess = true,
-                    Message = "Record added OK",
-                    Result = newRecord,
-                };
-            }
-            catch (Exception ex)
-            {
-                return new Response
-                {
-                    IsSuccess = false,
-                    Message = ex.Message,
-                };
-            }
-        }
-
+      
         public async Task<Response> Post<T>(
             string urlBase,
             string servicePrefix,

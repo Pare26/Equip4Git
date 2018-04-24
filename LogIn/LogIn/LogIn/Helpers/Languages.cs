@@ -109,6 +109,82 @@ namespace LogIn.Helpers
             get { return Resource.Menu; }
         }
 
+        public static string NoConnexion
+        {
+            get { return Resource.Noconnexion; }
+        }
 
+        public static string PassList
+        {
+            get { return Resource.PassList; }
+        }
+
+        public static string Regist
+        {
+            get { return Resource.Regist; }
+        }
+
+        public static string SecondName
+        {
+            get { return Resource.SecondName; }
+        }
+
+        public static string SecondNamePlaceHolder
+        {
+            get { return Resource.SecondNamePlaceHolder; }
+        }
+
+        public static string FirstName
+        {
+            get { return Resource.FirstName; }
+        }
+
+        public static string FirstNamePlaceHolder
+        {
+            get { return Resource.FirstNamePlaceHolder; }
+        }
+        ////////////////////////////////////////////////////////////////////
+
+        public static string FirstNameValidation
+        {
+            get { return Resource.FirstNameValidation; }
+        }
+        public static string LastNameValidation
+        {
+            get { return Resource.LastNameValidation; }
+        }
+        public static string EmailValidation2
+        {
+            get { return Resource.EmailValidation2; }
+        }
+        public static string PasswordValidation2
+        {
+            get { return Resource.PasswordValidation2; }
+        }
+        public static string ConfirmValidation
+        {
+            get { return Resource.ConfirmValidation; }
+        }
+        public static string ConfirmValidation2
+        {
+            get { return Resource.ConfirmValidation2; }
+        }
+        public static string ConfirmLabel
+        {
+            get { return Resource.ConfirmLabel; }
+        }
+        public static string ConfirmPlaceHolder
+        {
+            get { return Resource.ConfirmPlaceHolder; }
+        }
+        public static string UserRegisteredMessage
+        {
+            get { return Resource.UserRegisteredMessage; }
+        }
+  
+        public static string NumClass
+        {
+            get { return Resource.NumClass; }
+        }
     }
 }

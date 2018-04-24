@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LogIn.Views.RegisterPage"
+              BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Register">
+    <ContentPage.Content>
+        <ScrollView  
+            BindingContext="{Binding Register}">
+            <StackLayout
+                Padding="5">
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning, Mode=TwoWay}">
+                </ActivityIndicator>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Label 
+                        Grid.Column="0" 
+                        Grid.Row="0" 
+                        Text="FirstName" 
+                        TextColor="Black" 
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry 
+                        Grid.Column="1" 
+                        Grid.Row="0" 
+                        Placeholder="FirstNamePlace" 
+                        TextColor="Black" 
+                        Text="{Binding FirstName, Mode=TwoWay}">
+                    </Entry>
+                    <Label 
+                        Grid.Column="0" 
+                        Grid.Row="1" 
+                        Text="LastNameLabel" 
+                        TextColor="Black" 
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry 
+                        Grid.Column="1" 
+                        Grid.Row="1" 
+                        Placeholder="LastNamePlace" 
+                        TextColor="Black" 
+                        Text="{Binding LastName, Mode=TwoWay}">
+                    </Entry>
+                    <Label 
+                        Grid.Column="0" 
+                        Grid.Row="2" 
+                        Text="EMail" 
+                        TextColor="Black" 
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry 
+                        Keyboard="Email" 
+                        Grid.Column="1" 
+                        Grid.Row="2" 
+                        Placeholder="EmailPlace" 
+                        TextColor="Black" 
+                        Text="{Binding Email, Mode=TwoWay}">
+                    </Entry>
+                    <Label 
+                        Grid.Column="0" 
+                        Grid.Row="4" 
+                        Text="Password" 
+                        TextColor="Black" 
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry 
+                        Grid.Column="1" 
+                        Grid.Row="4" 
+                        IsPassword="true" 
+                        Placeholder="PasswordPlace" 
+                        TextColor="Black" 
+                        Text="{Binding Password, Mode=TwoWay}">
+                    </Entry>
+                    <Label 
+                        Grid.Column="0" 
+                        Grid.Row="5" 
+                        Text="Classe" 
+                        TextColor="Black" 
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry 
+                        Grid.Column="1" 
+                        Grid.Row="5" 
+                        IsPassword="true" 
+                        Placeholder="Numero de classe" 
+                        TextColor="Black" 
+                        Text="{Binding NumClass, Mode=TwoWay}">
+                    </Entry>
+                    <Label 
+                        Grid.Column="0" 
+                        Grid.Row="6" 
+                        Text="Confirm" 
+                        TextColor="Black" 
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry 
+                        Grid.Column="1" 
+                        Grid.Row="6" 
+                        IsPassword="true" 
+                        Placeholder="Confirm" 
+                        TextColor="Black" 
+                        Text="{Binding Confirm, Mode=TwoWay}">
+                    </Entry>
+                </Grid>
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning, Mode=TwoWay}">
+                </ActivityIndicator>
+                <Button 
+                    BackgroundColor="Green" 
+                    BorderRadius="23" 
+                    Command="{Binding RegisterCommand}" 
+                    HeightRequest="46" 
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}" 
+                    Margin="50,0,50,0" 
+                    Text="Register" 
+                    TextColor="White">
+                </Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

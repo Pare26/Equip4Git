@@ -1,6 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using GalaSoft.MvvmLight.Command;
+using LogIn.Views;
+using System;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace LogIn.ViewModels
 {
@@ -14,5 +16,23 @@ namespace LogIn.ViewModels
         public string PageName { get; set; }
         #endregion
 
+        #region Commands
+        public ICommand NavigateCommand
+        {
+            get
+            {
+                return new RelayCommand(Navigate);
+            }
+            
+        }
+
+        private void Navigate()
+        {
+            if (this.PageName.Equals("LoginPage"))
+            {
+                Application.Current.MainPage = new LoginPage();
+            }
+        }
+        #endregion
     }
 }

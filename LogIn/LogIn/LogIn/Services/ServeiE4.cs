@@ -33,8 +33,6 @@ namespace LogIn.Serveis
 
                         return usuario;
                     }
-
-                   
                 }
             }
 
@@ -75,10 +73,6 @@ namespace LogIn.Serveis
                     var objClint = new System.Net.Http.HttpClient();
                     System.Net.Http.HttpResponseMessage respon = await objClint.PostAsync(conexion, new StringContent(json, System.Text.Encoding.UTF8, "application/json"));
                     string responJsonText = await respon.Content.ReadAsStringAsync();
-
-
-
-
 
                     return json;
                 }

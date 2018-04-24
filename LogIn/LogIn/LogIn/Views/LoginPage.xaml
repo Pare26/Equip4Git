@@ -14,6 +14,13 @@
                     Source="e4"
                     WidthRequest="200">
                 </Image>
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Medium" 
+                    Text="{Binding Countdown}"
+                    TextColor="Black"
+                    HorizontalOptions="Center">
+                </Label>
                 <Grid
                     Margin="10,0"
                     VerticalOptions="CenterAndExpand">
@@ -88,6 +95,7 @@
                     <Button
                         BackgroundColor="Green"
                         BorderRadius="23"
+                        Command="{Binding RegisterCommand}"
                         HeightRequest="46"
                         HorizontalOptions="FillAndExpand"
                         IsEnabled="{Binding IsEnable, Mode=TwoWay}"

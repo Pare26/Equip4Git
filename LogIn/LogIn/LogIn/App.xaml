@@ -8,6 +8,8 @@
 		<!-- Application resource dictionary -->
         <ResourceDictionary>
             <infra:InstanceLocator x:Key="Locator"/>
+
+            <x:String x:Key="APIe4">http://192.168.0.10</x:String>
         </ResourceDictionary>
 
 	</Application.Resources>

@@ -70,6 +70,42 @@ namespace LogIn.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Confirm.
+        /// </summary>
+        public static string ConfirmLabel {
+            get {
+                return ResourceManager.GetString("ConfirmLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ConfirmPlaceHolder.
+        /// </summary>
+        public static string ConfirmPlaceHolder {
+            get {
+                return ResourceManager.GetString("ConfirmPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You must enter a confirm..
+        /// </summary>
+        public static string ConfirmValidation {
+            get {
+                return ResourceManager.GetString("ConfirmValidation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The password and confirm does not match..
+        /// </summary>
+        public static string ConfirmValidation2 {
+            get {
+                return ResourceManager.GetString("ConfirmValidation2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Email.
         /// </summary>
         public static string Email {
@@ -106,6 +142,15 @@ namespace LogIn.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a You must put a valid email..
+        /// </summary>
+        public static string EmailValidation2 {
+            get {
+                return ResourceManager.GetString("EmailValidation2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Error.
         /// </summary>
         public static string Error {
@@ -133,11 +178,29 @@ namespace LogIn.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a You must put your name..
+        /// </summary>
+        public static string FirstNameValidation {
+            get {
+                return ResourceManager.GetString("FirstNameValidation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Forgot your password?.
         /// </summary>
         public static string ForgotPassword {
             get {
                 return ResourceManager.GetString("ForgotPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You must put your last name..
+        /// </summary>
+        public static string LastNameValidation {
+            get {
+                return ResourceManager.GetString("LastNameValidation", resourceCulture);
             }
         }
         
@@ -187,6 +250,15 @@ namespace LogIn.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a You must put the number of the class..
+        /// </summary>
+        public static string NumClass {
+            get {
+                return ResourceManager.GetString("NumClass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Pass list.
         /// </summary>
         public static string PassList {
@@ -219,6 +291,15 @@ namespace LogIn.Resources {
         public static string PasswordValidation {
             get {
                 return ResourceManager.GetString("PasswordValidation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The password must have at least seix (6) characters..
+        /// </summary>
+        public static string PasswordValidation2 {
+            get {
+                return ResourceManager.GetString("PasswordValidation2", resourceCulture);
             }
         }
         
@@ -273,6 +354,15 @@ namespace LogIn.Resources {
         public static string SecondNamePlaceHolder {
             get {
                 return ResourceManager.GetString("SecondNamePlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The user was create, now you can login with this email and password..
+        /// </summary>
+        public static string UserRegisteredMessage {
+            get {
+                return ResourceManager.GetString("UserRegisteredMessage", resourceCulture);
             }
         }
         

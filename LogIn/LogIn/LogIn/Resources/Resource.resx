@@ -192,4 +192,34 @@
   <data name="SecondNamePlaceHolder" xml:space="preserve">
     <value>Second name...</value>
   </data>
+  <data name="ConfirmLabel" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="ConfirmPlaceHolder" xml:space="preserve">
+    <value>ConfirmPlaceHolder</value>
+  </data>
+  <data name="ConfirmValidation" xml:space="preserve">
+    <value>You must enter a confirm.</value>
+  </data>
+  <data name="ConfirmValidation2" xml:space="preserve">
+    <value>The password and confirm does not match.</value>
+  </data>
+  <data name="EmailValidation2" xml:space="preserve">
+    <value>You must put a valid email.</value>
+  </data>
+  <data name="FirstNameValidation" xml:space="preserve">
+    <value>You must put your name.</value>
+  </data>
+  <data name="LastNameValidation" xml:space="preserve">
+    <value>You must put your last name.</value>
+  </data>
+  <data name="NumClass" xml:space="preserve">
+    <value>You must put the number of the class.</value>
+  </data>
+  <data name="PasswordValidation2" xml:space="preserve">
+    <value>The password must have at least seix (6) characters.</value>
+  </data>
+  <data name="UserRegisteredMessage" xml:space="preserve">
+    <value>The user was create, now you can login with this email and password.</value>
+  </data>
 </root>

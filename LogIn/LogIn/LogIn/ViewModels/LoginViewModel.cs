@@ -8,6 +8,9 @@
     using System.Windows.Input;
     using Xamarin.Forms;
     using Helpers;
+    using System.Timers;
+    using System.Threading;
+
     public class LoginViewModel : BaseViewModel
     {
         #region Services
@@ -20,6 +23,12 @@
         private string password;
         private bool isRunning;
         private bool isEnabled;
+
+        private string format = "mm:ss";
+        private DateTime dosMin = new DateTime(2018, 04, 11, 00, 02, 00);
+        private DateTime countdown = new DateTime();
+        //private Timer timer = new Timer();
+        //private static Timer aTimer;
         #endregion
 
         #region Properties
@@ -54,6 +63,17 @@
             get { return this.isEnabled; }
             set { SetValue(ref this.isEnabled, value); }
         }
+
+
+        public string Temps
+        {
+            get { return this.dosMin.ToString(format); }
+        }
+
+        public string Countdown
+        {
+            get { return this.countdown.ToString(format); }
+        }
         #endregion
 
         #region Constructors
@@ -66,6 +86,31 @@
 
             this.Email = "admin@admin";
             this.Password = "admin";
+
+            //SetTimer();
+            
+        }
+
+        public void SetTimer()
+        {
+            // Create a timer with a two second interval.
+            //aTimer = new Timer();
+            //// Hook up the Elapsed event for the timer. 
+            //aTimer.Interval = 2000;
+            //aTimer.AutoReset = true;
+            //aTimer.Enabled = true;
+            //aTimer.Start();
+            //aTimer.Elapsed += this.OnTimedEvent;
+            do
+            {
+                countdown = dosMin.AddSeconds(-1);
+                Thread.Sleep(1000);
+            } while (true);
+        }
+
+        public void OnTimedEvent(Object source, ElapsedEventArgs e)
+        {
+            countdown = dosMin.AddSeconds(-1);
         }
         #endregion
 
@@ -136,7 +181,20 @@
 
             Application.Current.MainPage = new MasterPage();
         }
-        #endregion
 
+        public ICommand RegisterCommand
+        {
+            get
+            {
+                return new RelayCommand(Register);
+            }
+        }
+
+        private async void Register()
+        {
+            MainViewModel.GetInstance().Register = new RegisterViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
+        }
+        #endregion
     }
 }
